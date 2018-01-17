@@ -14,7 +14,7 @@ class Users extends React.Component {
       .then((users) => {
         const userList = users.users
         this.setState({
-          users:userList
+          users: userList
         })
       })
   }
@@ -22,16 +22,16 @@ class Users extends React.Component {
   render() {
     return (
       <div>
-    <h2>Users Page</h2>
-    {this.state.users.map((user, index) => (
-      <div key={index}>
-        <Link to='#'>{user.username} </Link>
-        <img src={`${user.avatar_url}`}/>
-        <hr />
+        <h2>Users Page</h2>
+        {this.state.users.map((user, index) => (
+          <div key={index}>
+            <Link to={`/users/${user.username}`}>{user.username} </Link>
+            <img src={`${user.avatar_url}`} />
+            <hr />
+          </div>
+        )
+        )}
       </div>
-    )
-    )}
-  </div>
     )
   }
 }
