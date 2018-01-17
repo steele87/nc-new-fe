@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Route, NavLink } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink, Link } from 'react-router-dom';
+import Topics from './Topics';
 
 class App extends Component {
   state = {
@@ -20,9 +21,7 @@ class App extends Component {
       })
   }
 
-
   render() {
-    console.log(this.state.articles)
     return (
       <div className="App">
         <BrowserRouter>
@@ -30,6 +29,7 @@ class App extends Component {
             <h1>NC News</h1>
             <Navbar className="navbar" />
             <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles}/>} />
+            <Route path='/topics' component={Topics}/>
           </div>
         </BrowserRouter>
       </div>
@@ -37,13 +37,14 @@ class App extends Component {
   }
 }
 
+
 const Home = (props) => {
   return (
   <div>
     <h2>Home Page</h2>
     {props.articles.map((article, index) => (
       <div key={index}>
-        <p>{article.title}</p>
+        <Link to='#'>{article.title}</Link>
         <hr />
       </div>
     )
@@ -51,6 +52,7 @@ const Home = (props) => {
   </div>
   )
 };
+
 
 const Navbar = () => {
   const activeStyle = {
@@ -64,12 +66,13 @@ const Navbar = () => {
     <nav style={navStyle}>
       <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
       {' | '}
-      <NavLink to="/#" activeStyle={activeStyle}>Topics</NavLink>
+      <NavLink to="/topics" activeStyle={activeStyle}>Topics</NavLink>
        {' | '}
       <NavLink to="#" activeStyle={activeStyle}>Article</NavLink>
+      {' | '}
+      <NavLink to="#" activeStyle={activeStyle}>Journalists</NavLink>
     </nav>
   );
 };
-
 
 export default App;
