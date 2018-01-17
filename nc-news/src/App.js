@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route, NavLink, Link } from 'react-router-dom';
 import Topics from './Topics';
+import TopicArticles from './TopicArticles';
 import Users from './Users';
 import UserComponent from './UserComponent';
 
@@ -32,6 +33,7 @@ class App extends Component {
             <Navbar className="navbar" />
             <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles} />} />
             <Route exact path='/topics' component={Topics} />
+            <Route exact path='/topics/:topic/articles' component={TopicArticles} />
             <Route exact path='/users' component={Users} />
             <Route  path='/users/:username' component={UserComponent} />
           </div>
