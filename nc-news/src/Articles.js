@@ -25,7 +25,7 @@ class Articles extends React.Component {
         <h2>Articles Page</h2>
         {this.state.articles.map((article, index) => (
         <div key={index}>
-          <Link to='#'>{article.title}</Link>
+          <Link to={`/articles/${article._id}`}>{article.title}</Link>
           <p>likes: {article.votes}</p>
           <hr />
         </div>

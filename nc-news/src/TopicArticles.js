@@ -28,7 +28,8 @@ class TopicArticles extends React.Component {
         <h2>{this.state.topic} Page</h2>
         {this.state.articles.map((article, index) => (
           <div key={index}>
-            <p>{article.title}</p>
+          <Link to={`/articles/${article._id}`}>{article.title}</Link>
+          {' | '}
             <Link to={`/users/${article.created_by}`}>by: {article.created_by} </Link >
             <hr />
           </div>

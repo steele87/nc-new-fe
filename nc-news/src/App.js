@@ -7,6 +7,7 @@ import Users from './Users';
 import UserComponent from './UserComponent';
 import PageNotFound from './PageNotFound';
 import Articles from './Articles';
+import Article from './Article';
 
 class App extends Component {
   state = {
@@ -37,6 +38,7 @@ class App extends Component {
             <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles} />} />
             <Route exact path='/topics' component={Topics} />
             <Route exact path='/articles' component={Articles} />
+            <Route exact path='/articles/:article_id' component={Article} />
             <Route exact path='/topics/:topic/articles' component={TopicArticles} />
             <Route exact path='/users' component={Users} />
             <Route  path='/users/:username' component={UserComponent} />
@@ -56,7 +58,7 @@ const Home = (props) => {
       <h2>Home Page</h2>
       {props.articles.map((article, index) => (
         <div key={index}>
-          <Link to='#'>{article.title}</Link>
+          <Link to={`/articles/${article._id}`}>{article.title}</Link>
           <p>likes: {article.votes}</p>
           <hr />
         </div>
