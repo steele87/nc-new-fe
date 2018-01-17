@@ -26,7 +26,7 @@ class Users extends React.Component {
         {this.state.users.map((user, index) => (
           <div key={index}>
             <Link to={`/users/${user.username}`}>{user.username} </Link>
-            <img src={`${user.avatar_url}`} alt="user"/>
+            <img src={`${user.avatar_url}`} alt="user" style={{ width: 100 }}/>
             <hr />
           </div>
         )

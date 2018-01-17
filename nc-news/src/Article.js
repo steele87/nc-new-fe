@@ -28,6 +28,7 @@ class Article extends React.Component {
        <h3>{articleInfo.articleInfo.title}</h3>
        <p>{articleInfo.articleInfo.body}</p>
        <Link to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
+       <p>likes: {articleInfo.articleInfo.votes}</p>
       </div>
     )
   }
