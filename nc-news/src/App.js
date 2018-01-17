@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Route, NavLink, Link } from 'react-router-dom';
+import { BrowserRouter, Route, NavLink, Link, Switch } from 'react-router-dom';
 import Topics from './Topics';
 import TopicArticles from './TopicArticles';
 import Users from './Users';
 import UserComponent from './UserComponent';
+import PageNotFound from './PageNotFound';
 
 class App extends Component {
   state = {
@@ -31,11 +32,14 @@ class App extends Component {
           <div>
             <h1>NC News</h1>
             <Navbar className="navbar" />
+            <Switch>
             <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles} />} />
             <Route exact path='/topics' component={Topics} />
             <Route exact path='/topics/:topic/articles' component={TopicArticles} />
             <Route exact path='/users' component={Users} />
             <Route  path='/users/:username' component={UserComponent} />
+            <Route component={PageNotFound} />
+            </Switch>
           </div>
         </BrowserRouter>
       </div>
