@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
 class UserComponent extends React.Component {
   state = {
@@ -21,13 +20,12 @@ class UserComponent extends React.Component {
   }
 
   render() {
-    console.log(this.state.user)
     return (
       <div>
         <h2>User Page</h2>
         {this.state.user.map((user, index) => (
           <div key={index}>
-            <img src={`${user.avatar_url}`} />
+            <img src={`${user.avatar_url}`} alt="user"/>
             <p>Name: {user.name}</p>
             <p>username: {user.username} </p>
             <hr />

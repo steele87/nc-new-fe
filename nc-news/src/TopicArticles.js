@@ -23,7 +23,6 @@ class TopicArticles extends React.Component {
   }
 
   render() {
-    console.log(this.state.articles)
     return (
       <div>
         <h2>{this.state.topic} Page</h2>

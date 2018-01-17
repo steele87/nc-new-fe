@@ -6,6 +6,7 @@ import TopicArticles from './TopicArticles';
 import Users from './Users';
 import UserComponent from './UserComponent';
 import PageNotFound from './PageNotFound';
+import Articles from './Articles';
 
 class App extends Component {
   state = {
@@ -35,6 +36,7 @@ class App extends Component {
             <Switch>
             <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles} />} />
             <Route exact path='/topics' component={Topics} />
+            <Route exact path='/articles' component={Articles} />
             <Route exact path='/topics/:topic/articles' component={TopicArticles} />
             <Route exact path='/users' component={Users} />
             <Route  path='/users/:username' component={UserComponent} />
@@ -79,7 +81,7 @@ const Navbar = () => {
       {' | '}
       <NavLink to="/topics" activeStyle={activeStyle}>Topics</NavLink>
       {' | '}
-      <NavLink to="#" activeStyle={activeStyle}>Articles</NavLink>
+      <NavLink to="/articles" activeStyle={activeStyle}>Articles</NavLink>
       {' | '}
       <NavLink to="/users" activeStyle={activeStyle}>Users</NavLink>
     </nav>
