@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { BrowserRouter, Route, NavLink, Link } from 'react-router-dom';
 import Topics from './Topics';
+import Users from './Users';
 
 class App extends Component {
   state = {
@@ -30,6 +31,7 @@ class App extends Component {
             <Navbar className="navbar" />
             <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles}/>} />
             <Route path='/topics' component={Topics}/>
+            <Route path='/users' component={Users}/>
           </div>
         </BrowserRouter>
       </div>
@@ -45,6 +47,7 @@ const Home = (props) => {
     {props.articles.map((article, index) => (
       <div key={index}>
         <Link to='#'>{article.title}</Link>
+        <p>likes: {article.votes}</p>
         <hr />
       </div>
     )
@@ -68,9 +71,9 @@ const Navbar = () => {
       {' | '}
       <NavLink to="/topics" activeStyle={activeStyle}>Topics</NavLink>
        {' | '}
-      <NavLink to="#" activeStyle={activeStyle}>Article</NavLink>
+      <NavLink to="#" activeStyle={activeStyle}>Articles</NavLink>
       {' | '}
-      <NavLink to="#" activeStyle={activeStyle}>Journalists</NavLink>
+      <NavLink to="/users" activeStyle={activeStyle}>Users</NavLink>
     </nav>
   );
 };
