@@ -71,10 +71,10 @@ const Home = (props) => {
 
 const Navbar = () => {
   const activeStyle = {
-    color: 'white'
+    color: 'red'
   };
   const navStyle = {
-    backgroundColor: 'black',
+    backgroundColor: 'white',
     margin: '2%',
   };
   return (
