@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import Voter from './Voter'
-import changeVote from '../api'
+import Voter from './Voter';
+import changeVote from '../api';
 
 class Articles extends React.Component {
   state = {
