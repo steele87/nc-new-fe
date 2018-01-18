@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 class Article extends React.Component {
   state = {
-    articleInfo: {}
+    articleInfo: {},
+    comments: [],
   }
 
   componentDidMount() {
@@ -17,11 +18,23 @@ class Article extends React.Component {
         articleInfo: article
       })
     })
+    // .then((articleInfo) => {
+      fetch(`https://northcoders-news-api.herokuapp.com/api/articles/${articleId}/comments`)
+    // })
+    .then((commentInfo) => {
+      return commentInfo.json();
+    })
+    .then((comment) => {
+      const commentList =comment.comments
+      this.setState({
+        comments: commentList
+      })
+    })
   }
   
   render() {
+    console.log(this.state.comments)
     const articleInfo = this.state
-    console.log(articleInfo.articleInfo)
     return (
       <div>
         <h2>Article Page</h2>
@@ -29,6 +42,15 @@ class Article extends React.Component {
        <p>{articleInfo.articleInfo.body}</p>
        <Link to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
        <p>likes: {articleInfo.articleInfo.votes}</p>
+       <h3>Comments</h3>
+       {this.state.comments.map((comment, index) => (
+          <div key={index}>
+            <p>{comment.body}</p>
+              <p>likes {comment.votes}</p>
+            <hr />
+          </div>
+        )
+        )}
       </div>
     )
   }
