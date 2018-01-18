@@ -7,7 +7,7 @@ class Users extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://northcoders-news-api.herokuapp.com/api/users')
+    fetch(`${process.env.REACT_APP_API_URL}/users`)
       .then((res) => {
         return res.json();
       })

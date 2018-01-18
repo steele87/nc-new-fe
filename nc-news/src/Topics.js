@@ -7,7 +7,7 @@ class Topics extends React.Component {
   }
 
   componentDidMount() {
-    fetch('https://northcoders-news-api.herokuapp.com/api/topics')
+    fetch(`${process.env.REACT_APP_API_URL}/topics`)
       .then((res) => {
         return res.json();
       })

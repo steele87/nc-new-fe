@@ -7,7 +7,7 @@ class UserComponent extends React.Component {
 
   componentDidMount() {
     const username = this.props.match.params.username;
-    fetch(`https://northcoders-news-api.herokuapp.com/api/users/${username}`)
+    fetch(`${process.env.REACT_APP_API_URL}/users/${username}`)
       .then((res) => {
         return res.json();
       })

@@ -9,7 +9,7 @@ class Article extends React.Component {
 
   componentDidMount() {
     const articleId = this.props.match.params.article_id;
-    fetch(`https://northcoders-news-api.herokuapp.com/api/articles/${articleId}`)
+    fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}`)
       .then((res) => {
         return res.json();
       })
@@ -19,7 +19,7 @@ class Article extends React.Component {
         })
       })
     // .then((articleInfo) => {
-    fetch(`https://northcoders-news-api.herokuapp.com/api/articles/${articleId}/comments`)
+    fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}/comments`)
       // })
       .then((commentInfo) => {
         return commentInfo.json();
@@ -33,10 +33,12 @@ class Article extends React.Component {
   }
 
   render() {
+
     const articleInfo = this.state
     return (
       <div>
         <h2>Article Page</h2>
+        <div>
         <h3>{articleInfo.articleInfo.title}</h3>
         <p>{articleInfo.articleInfo.body}</p>
         <Link to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
@@ -51,6 +53,7 @@ class Article extends React.Component {
           </div>
         )
         )}
+        </div>
       </div>
     )
   }

@@ -9,7 +9,7 @@ class TopicArticles extends React.Component {
 
   componentDidMount() {
     let topic = this.props.match.params.topic.toLowerCase();
-    fetch(`https://northcoders-news-api.herokuapp.com/api/topics/${topic}/articles`)
+    fetch(`${process.env.REACT_APP_API_URL}/topics/${topic}/articles`)
       .then((res) => {
         return res.json();
       })

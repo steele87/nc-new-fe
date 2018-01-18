@@ -11,11 +11,11 @@ import Article from './Article';
 
 class App extends Component {
   state = {
-    articles: []
+    articles: [],
   }
 
   componentDidMount() {
-    fetch('https://northcoders-news-api.herokuapp.com/api/articles')
+    fetch(`${process.env.REACT_APP_API_URL}/articles`)
       .then((res) => {
         return res.json();
       })
