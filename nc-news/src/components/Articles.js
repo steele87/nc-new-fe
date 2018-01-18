@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Voter from './Voter'
+import changeVote from '../api'
 
 class Articles extends React.Component {
   state = {
@@ -19,14 +21,32 @@ class Articles extends React.Component {
       })
   }
 
+  updateVote = (id,vote) => {
+    changeVote(id,vote)
+    .then(res => {
+
+      const {_id: newArticleID} = res;
+
+      const newArticles = this.state.articles.map(article => {
+  
+        if (article._id === newArticleID) article.votes = res.votes;
+        return article;
+      });
+      this.setState({
+        articles: newArticles
+      })
+    })
+  }
+
   render() {
+
     return (
       <div>
         <h2>Articles Page</h2>
         {this.state.articles.map((article, index) => (
         <div key={index}>
           <Link to={`/articles/${article._id}`}>{article.title}</Link>
-          <p>likes: {article.votes}</p>
+          <Voter id = {article._id} votes= {article.votes} updateVote={this.updateVote} />
           <hr />
         </div>
       )

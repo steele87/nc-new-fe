@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+import '../App.css';
 import { BrowserRouter, Route, NavLink, Link, Switch } from 'react-router-dom';
 import Topics from './Topics';
 import TopicArticles from './TopicArticles';
@@ -8,6 +8,7 @@ import UserComponent from './UserComponent';
 import PageNotFound from './PageNotFound';
 import Articles from './Articles';
 import Article from './Article';
+import Voter from './Voter';
 
 class App extends Component {
   state = {
@@ -27,6 +28,7 @@ class App extends Component {
       })
   }
 
+
   render() {
     return (
       <div className="App">
@@ -35,14 +37,14 @@ class App extends Component {
             <h1>NC News</h1>
             <Navbar className="navbar" />
             <Switch>
-            <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles} />} />
-            <Route exact path='/topics' component={Topics} />
-            <Route exact path='/articles' component={Articles} />
-            <Route exact path='/articles/:article_id' component={Article} />
-            <Route exact path='/topics/:topic/articles' component={TopicArticles} />
-            <Route exact path='/users' component={Users} />
-            <Route  path='/users/:username' component={UserComponent} />
-            <Route component={PageNotFound} />
+              <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles} />} />
+              <Route exact path='/topics' component={Topics} />
+              <Route exact path='/articles' component={Articles} />
+              <Route exact path='/articles/:article_id' component={Article} />
+              <Route exact path='/topics/:topic/articles' component={TopicArticles} />
+              <Route exact path='/users' component={Users} />
+              <Route path='/users/:username' component={UserComponent} />
+              <Route component={PageNotFound} />
             </Switch>
           </div>
         </BrowserRouter>
