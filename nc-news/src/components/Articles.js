@@ -21,21 +21,21 @@ class Articles extends React.Component {
       })
   }
 
-  updateVote = (id,vote) => {
-    changeVote(id,vote)
-    .then(res => {
+  updateVote = (id, vote) => {
+    changeVote(id, vote)
+      .then(res => {
 
-      const {_id: newArticleID} = res;
+        const { _id: newArticleID } = res;
 
-      const newArticles = this.state.articles.map(article => {
-  
-        if (article._id === newArticleID) article.votes = res.votes;
-        return article;
-      });
-      this.setState({
-        articles: newArticles
+        const newArticles = this.state.articles.map(article => {
+
+          if (article._id === newArticleID) article.votes = res.votes;
+          return article;
+        });
+        this.setState({
+          articles: newArticles
+        })
       })
-    })
   }
 
   render() {
@@ -44,13 +44,13 @@ class Articles extends React.Component {
       <div>
         <h2>Articles Page</h2>
         {this.state.articles.map((article, index) => (
-        <div key={index}>
-          <Link to={`/articles/${article._id}`}>{article.title}</Link>
-          <Voter id = {article._id} votes= {article.votes} updateVote={this.updateVote} />
-          <hr />
-        </div>
-      )
-      )}
+          <div key={index}>
+            <Link to={`/articles/${article._id}`}>{article.title}</Link>
+            <Voter id={article._id} votes={article.votes} updateVote={this.updateVote} />
+            <hr />
+          </div>
+        )
+        )}
       </div>
     )
   }

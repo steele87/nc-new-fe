@@ -8,7 +8,6 @@ import UserComponent from './UserComponent';
 import PageNotFound from './PageNotFound';
 import Articles from './Articles';
 import Article from './Article';
-import Voter from './Voter';
 
 class App extends Component {
   state = {

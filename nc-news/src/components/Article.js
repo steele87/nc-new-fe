@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Voter from './Voter';
+import CommentVoter from './CommentVoter';
 import changeVote from '../api';
+import changeCommentVote from '../commentVoteApi';
 
 class Article extends React.Component {
   state = {
@@ -34,38 +36,56 @@ class Article extends React.Component {
       })
   }
 
-  updateVote = (id,vote) => {
-    changeVote(id,vote)
-    .then(res => {
-      const updateVote = res;
-      this.state.articleInfo.votes = updateVote.votes
-      this.setState({
-        articleInfo: updateVote
+  updateVote = (id, vote) => {
+    changeVote(id, vote)
+      .then(res => {
+        this.setState({
+          articleInfo: res
+        })
       })
-    })
   }
 
-  render() {
+  commentVote = (id, vote) => {
+    changeCommentVote(id, vote)
+      .then(commentThings => {
+        if (commentThings.status === 204) {
+          fetch(`${process.env.REACT_APP_API_URL}/articles/${this.state.articleInfo._id}/comments`)
 
+            .then((commentInfo) => {
+              return commentInfo.json();
+            })
+            .then((comment) => {
+              const commentList = comment.comments
+              this.setState({
+                comments: commentList
+              })
+            })
+        }
+      });
+
+  };
+
+
+  render() {
     const articleInfo = this.state
     return (
       <div>
         <h2>Article Page</h2>
         <div>
-        <h3>{articleInfo.articleInfo.title}</h3>
-        <p>{articleInfo.articleInfo.body}</p>
-        <Link to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
-        <Voter id = {articleInfo.articleInfo._id} votes= {articleInfo.articleInfo.votes} updateVote={this.updateVote} />
-        <h3>Comments</h3>
-        {this.state.comments.map((comment, index) => (
-          <div key={index}>
-            <p>{comment.body}</p>
-            <Link to={`/users/${comment.created_by}`}> Added by {comment.created_by} </Link>
-            <p>likes {comment.votes}</p>
-            <hr />
-          </div>
-        )
-        )}
+          <h3>{articleInfo.articleInfo.title}</h3>
+          <p>{articleInfo.articleInfo.body}</p>
+          <Link to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
+          <Voter id={articleInfo.articleInfo._id} votes={articleInfo.articleInfo.votes} updateVote={this.updateVote} />
+          <h3>Comments</h3>
+          {this.state.comments.map((comment, index) => (
+            <div key={index}>
+              <p>{comment.body}</p>
+              <Link to={`/users/${comment.created_by}`}> Added by {comment.created_by} </Link>
+              <CommentVoter id={comment._id} votes={comment.votes} commentVote={this.commentVote} />
+              <hr />
+            </div>
+          )
+          )}
         </div>
       </div>
     )
