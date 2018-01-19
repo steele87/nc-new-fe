@@ -73,7 +73,7 @@ const Home = (props) => {
 
 const Navbar = () => {
   const activeStyle = {
-    color: 'red'
+    color: 'rgb(209, 35, 35)'
   };
   const navStyle = {
     backgroundColor: 'white',
@@ -81,13 +81,13 @@ const Navbar = () => {
   };
   return (
     <nav style={navStyle}>
-      <NavLink exact to="/" activeStyle={activeStyle}>Home</NavLink>
+      <NavLink className="navLink" exact to="/" activeStyle={activeStyle}>Home</NavLink>
       {' | '}
-      <NavLink to="/topics" activeStyle={activeStyle}>Topics</NavLink>
+      <NavLink className="navLink" to="/topics" activeStyle={activeStyle}>Topics</NavLink>
       {' | '}
-      <NavLink to="/articles" activeStyle={activeStyle}>Articles</NavLink>
+      <NavLink className="navLink" to="/articles" activeStyle={activeStyle}>Articles</NavLink>
       {' | '}
-      <NavLink to="/users" activeStyle={activeStyle}>Users</NavLink>
+      <NavLink className="navLink" to="/users" activeStyle={activeStyle}>Users</NavLink>
     </nav>
   );
 };
