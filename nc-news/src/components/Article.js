@@ -6,6 +6,8 @@ import changeVote from '../api';
 import changeCommentVote from '../commentVoteApi';
 import CommentAdder from './CommentAdder';
 import postComment from '../commentAdderApi';
+import deleteRequest from '../deleteCommentApi'
+import CommentDeleter from './DeleteComment'
 
 class Article extends React.Component {
   state = {
@@ -42,7 +44,6 @@ class Article extends React.Component {
     event.preventDefault()
     postComment(id, event.target[0].value)
     .then(res => {
-      console.log(res)
       if (res.status === 201) {
         fetch(`${process.env.REACT_APP_API_URL}/articles/${this.state.articleInfo._id}/comments`)
           .then((commentInfo) => {
@@ -57,6 +58,16 @@ class Article extends React.Component {
       }
     })
   }
+
+  deleteComment = (id) => {
+    deleteRequest(id)
+    const refreshedComments = this.state.comments.filter((comment) => {
+      if (comment._id !== id) return comment
+    })
+    this.setState({
+      comments: refreshedComments
+    })
+    }
 
   updateVote = (id, vote) => {
     changeVote(id, vote)
@@ -104,6 +115,7 @@ class Article extends React.Component {
               <p>{comment.body}</p>
               <Link to={`/users/${comment.created_by}`}> Added by {comment.created_by} </Link>
               <CommentVoter id={comment._id} votes={comment.votes} commentVote={this.commentVote} />
+              <CommentDeleter id={comment._id} deleteComment={this.deleteComment}/>
               <hr />
             </div>
           )
