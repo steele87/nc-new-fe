@@ -25,7 +25,7 @@ class Topics extends React.Component {
     <h2>Topics Page</h2>
     {this.state.topics.map((topic, index) => (
       <div key={index}>
-        <Link to={`/topics/${topic.title}/articles`}>{topic.title}</Link>
+        <Link className="link" to={`/topics/${topic.title}/articles`}>{topic.title}</Link>
         <hr />
       </div>
     )

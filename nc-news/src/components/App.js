@@ -33,8 +33,9 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <h1>NC News</h1>
             <Navbar className="navbar" />
+            <img className ="logo" src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png" /> 
+            <h1>News</h1>
             <Switch>
               <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles} />} />
               <Route exact path='/topics' component={Topics} />
@@ -59,7 +60,7 @@ const Home = (props) => {
       <h2>Home Page</h2>
       {props.articles.map((article, index) => (
         <div key={index}>
-          <Link to={`/articles/${article._id}`}>{article.title}</Link>
+          <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
           <p>likes: {article.votes}</p>
           <hr />
         </div>
