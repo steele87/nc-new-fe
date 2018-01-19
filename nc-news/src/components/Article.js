@@ -4,6 +4,8 @@ import Voter from './Voter';
 import CommentVoter from './CommentVoter';
 import changeVote from '../api';
 import changeCommentVote from '../commentVoteApi';
+import CommentAdder from './CommentAdder';
+import postComment from '../commentAdderApi';
 
 class Article extends React.Component {
   state = {
@@ -36,6 +38,26 @@ class Article extends React.Component {
       })
   }
 
+  addComment = (id, event) => {
+    event.preventDefault()
+    postComment(id, event.target[0].value)
+    .then(res => {
+      console.log(res)
+      if (res.status === 201) {
+        fetch(`${process.env.REACT_APP_API_URL}/articles/${this.state.articleInfo._id}/comments`)
+          .then((commentInfo) => {
+            return commentInfo.json();
+          })
+          .then((comment) => {
+            const commentList = comment.comments
+            this.setState({
+              comments: commentList
+            })
+          })
+      }
+    })
+  }
+
   updateVote = (id, vote) => {
     changeVote(id, vote)
       .then(res => {
@@ -62,7 +84,6 @@ class Article extends React.Component {
             })
         }
       });
-
   };
 
 
@@ -77,6 +98,7 @@ class Article extends React.Component {
           <Link to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
           <Voter id={articleInfo.articleInfo._id} votes={articleInfo.articleInfo.votes} updateVote={this.updateVote} />
           <h3>Comments</h3>
+           <CommentAdder id={articleInfo.articleInfo._id} addComment={this.addComment}/>
           {this.state.comments.map((comment, index) => (
             <div key={index}>
               <p>{comment.body}</p>
