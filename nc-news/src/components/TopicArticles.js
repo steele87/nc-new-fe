@@ -8,16 +8,15 @@ class TopicArticles extends React.Component {
   }
 
   componentDidMount() {
-    let topic = this.props.match.params.topic.toLowerCase();
+    let topic = this.props.match.params.topic;
     fetch(`${process.env.REACT_APP_API_URL}/topics/${topic}/articles`, {
       method: 'GET',
-      headers: new Headers ({
+      headers: new Headers({
         'Content-Type': 'application/json'
       })
     }
-      )
+    )
       .then((res) => {
-        console.log(res)
         return res.json();
       })
       .then((articles) => {
@@ -35,9 +34,9 @@ class TopicArticles extends React.Component {
         <h2>{this.state.topic} Page</h2>
         {this.state.articles.map((article, index) => (
           <div key={index}>
-          <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
-          {' | '}
-            <Link className="link" to={`/users/${article.created_by}`}>by: {article.created_by} </Link >
+            <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
+            {' | '}
+            {/* <Link className="link" to={`/users/${article.created_by}`}>by: {article.created_by} </Link > */}
             <hr />
           </div>
         )

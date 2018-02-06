@@ -50,7 +50,6 @@ class Article extends React.Component {
               return commentInfo.json();
             })
             .then((comment) => {
-              console.log(comment)
               const commentList = comment.comments
               this.setState({
                 comments: commentList
