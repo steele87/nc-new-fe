@@ -23,7 +23,7 @@ class Article extends React.Component {
       })
       .then((article) => {
         this.setState({
-          articleInfo: article
+          articleInfo: article.article
         })
       })
 
@@ -73,7 +73,7 @@ class Article extends React.Component {
     changeVote(id, vote)
       .then(res => {
         this.setState({
-          articleInfo: res
+          articleInfo: res.article
         })
       })
   }
@@ -106,7 +106,7 @@ class Article extends React.Component {
         <div>
           <h3>{articleInfo.articleInfo.title}</h3>
           <p>{articleInfo.articleInfo.body}</p>
-          <Link className="link" to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
+          {/* <Link className="link" to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link> */}
           <Voter id={articleInfo.articleInfo._id} votes={articleInfo.articleInfo.votes} updateVote={this.updateVote} />
           <h3>Comments</h3>
           <CommentAdder id={articleInfo.articleInfo._id} addComment={this.addComment} />

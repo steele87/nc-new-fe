@@ -20,7 +20,7 @@ class App extends Component {
         return res.json();
       })
       .then((articles) => {
-        const articleList = articles.articles
+        const articleList = articles.topic
         this.setState({
           articles: articleList
         })

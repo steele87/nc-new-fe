@@ -9,8 +9,15 @@ class TopicArticles extends React.Component {
 
   componentDidMount() {
     let topic = this.props.match.params.topic.toLowerCase();
-    fetch(`${process.env.REACT_APP_API_URL}/topics/${topic}/articles`)
+    fetch(`${process.env.REACT_APP_API_URL}/topics/${topic}/articles`, {
+      method: 'GET',
+      headers: new Headers ({
+        'Content-Type': 'application/json'
+      })
+    }
+      )
       .then((res) => {
+        console.log(res)
         return res.json();
       })
       .then((articles) => {

@@ -14,7 +14,7 @@ class Articles extends React.Component {
         return res.json();
       })
       .then((articles) => {
-        const articleList = articles.articles
+        const articleList = articles.topic
         this.setState({
           articles: articleList
         })
@@ -24,12 +24,11 @@ class Articles extends React.Component {
   updateVote = (id, vote) => {
     changeVote(id, vote)
       .then(res => {
-
-        const { _id: newArticleID } = res;
+        const { _id: newArticleID } = res.article;
 
         const newArticles = this.state.articles.map(article => {
 
-          if (article._id === newArticleID) article.votes = res.votes;
+          if (article._id === newArticleID) article.votes = res.article.votes;
           return article;
         });
         this.setState({

@@ -12,6 +12,7 @@ class Users extends React.Component {
         return res.json();
       })
       .then((users) => {
+        console.log(users)
         const userList = users.users
         this.setState({
           users: userList
