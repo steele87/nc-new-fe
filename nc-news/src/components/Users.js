@@ -13,7 +13,7 @@ class Users extends React.Component {
       })
       .then((users) => {
         console.log(users)
-        const userList = users.users
+        const userList = users.user
         this.setState({
           users: userList
         })

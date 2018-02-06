@@ -12,7 +12,8 @@ class UserComponent extends React.Component {
         return res.json();
       })
       .then((user) => {
-        const userInfo = user.users
+        console.log(user)
+        const userInfo = user.user
         this.setState({
           user: userInfo
         })
