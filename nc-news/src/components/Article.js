@@ -80,13 +80,15 @@ class Article extends React.Component {
   commentVote = (id, vote) => {
     changeCommentVote(id, vote)
       .then(commentThings => {
-        if (commentThings.status === 204) {
+        console.log(commentThings, 'dfsghjfk')
+        if (commentThings.status === 200) {
           fetch(`${process.env.REACT_APP_API_URL}/articles/${this.state.articleInfo._id}/comments`)
 
             .then((commentInfo) => {
               return commentInfo.json();
             })
             .then((comment) => {
+              console.log(comment)
               const commentList = comment.comments
               this.setState({
                 comments: commentList
