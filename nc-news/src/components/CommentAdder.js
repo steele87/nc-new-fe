@@ -2,8 +2,6 @@ import React from 'react'
 
 const CommentAdder = ({id, addComment,}) => {
 
-
-
   return (
     <div>
       <form onSubmit ={(event) => addComment(id, event)} >

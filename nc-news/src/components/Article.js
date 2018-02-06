@@ -28,7 +28,6 @@ class Article extends React.Component {
       })
 
     fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}/comments`)
-
       .then((commentInfo) => {
         return commentInfo.json();
       })
@@ -104,7 +103,7 @@ class Article extends React.Component {
       <div>
         <h2>Article Page</h2>
         <div>
-          <h3>{articleInfo.articleInfo.title}</h3>
+          <h3>{articleInfo.articleInfo.title}:</h3>
           <p>{articleInfo.articleInfo.body}</p>
           {/* <Link className="link" to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link> */}
           <Voter id={articleInfo.articleInfo._id} votes={articleInfo.articleInfo.votes} updateVote={this.updateVote} />
