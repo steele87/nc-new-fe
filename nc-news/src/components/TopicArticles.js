@@ -32,15 +32,17 @@ class TopicArticles extends React.Component {
     return (
       <div>
         <h2>{this.state.topic} Page</h2>
-        {this.state.articles.map((article, index) => (
-          <div key={index}>
-            <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
-            {' | '}
-            {/* <Link className="link" to={`/users/${article.created_by}`}>by: {article.created_by} </Link > */}
-            <hr />
-          </div>
-        )
-        )}
+        {this.state.articles.length ?
+          this.state.articles.map((article, index) => (
+            <div key={index}>
+              <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
+              {/* {' | '} */}
+              {/* <Link className="link" to={`/users/${article.created_by}`}>by: {article.created_by} </Link > */}
+              <hr />
+            </div>
+          )
+          )
+          : <div ><i className="far fa-frown fa-lg " style={{ color: 'tomato' }} aria-hidden="true"></i><p>Sorry, no articles are currently available!</p></div>}
       </div>
     )
   }
