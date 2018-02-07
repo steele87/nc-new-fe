@@ -8,10 +8,8 @@ const CommentVoter = ({ id, votes, commentVote }) => {
   const voteDown = () => commentVote(id, 'down');
 
   return (
-    <div>
-      <i onClick={voteUp}>^</i>
-      <p>{votes}</p>
-      <i onClick={voteDown}>v</i>
+    <div className="likes">
+      <p> <i onClick={voteUp}><i class="far fa-thumbs-up"></i></i> {votes} <i onClick={voteDown}><i class="far fa-thumbs-down"></i></i></p>
     </div>
 
   )

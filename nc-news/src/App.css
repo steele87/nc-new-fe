@@ -1,37 +1,16 @@
-.App {
-  text-align: center;
-  color: white;
-}
-
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
-}
-
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-}
-
-.App-title {
-  font-size: 1.5em;
-}
-
-.App-intro {
-  font-size: large;
-}
-
 html {
   background-color: black;
   height: 100%;
+  width: 100%;
 }
 
 body {
   background-color: black;
+  padding: 8%;
   color: white;
   font-family: 'Hind', sans-serif;
+  width: 100%;
+  height: 100%;
 }
 
 .logo {
@@ -41,8 +20,42 @@ body {
 
 h1 {
   color: white;
-  font-size: 350%;
+  font-size: 200%;
   font-weight: bold;
+  text-align: center;
+  height: 20%;
+  width: 100%;
+  padding: 3%;
+}
+
+h2 {
+  color: white;
+  font-size: 150%;
+  text-align: center;
+  height: 20%;
+  width: 100%;
+  padding-bottom: 6%;
+}
+
+h3 {
+  color: white;
+  font-size: 150%;
+  text-align: center;
+  height: 20%;
+  width: 100%;
+  padding-bottom: 6%;
+}
+
+h4 {
+  color: white;
+  font-size: 125%;
+  height: 20%;
+  width: 100%;
+  padding: 2%;
+}
+
+button {
+  color: red;
 }
 
 .link {
@@ -51,4 +64,22 @@ h1 {
 
 .navLink {
   color: black;
+  text-align: center;
+  padding: 1%;
+  font-size: 90%
+}
+
+.likes {
+  display: inline-block;
+  padding: 2%;
+}
+
+.commentBox {
+  width: 80%;
+  height: 10%;
+  padding: 2%;
+}
+
+.addButton {
+  color: white;
 }

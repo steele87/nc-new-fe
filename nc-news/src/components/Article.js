@@ -101,13 +101,14 @@ class Article extends React.Component {
     console.log(articleInfo)
     return (
       <div>
-        <h2>Article Page</h2>
+        <h2><i class="far fa-bookmark"></i> Article Page</h2>
         <div>
-          <h3>{articleInfo.articleInfo.title}:</h3>
+          <h3>Article: {articleInfo.articleInfo.title}</h3>
           <p>{articleInfo.articleInfo.body}</p>
           {/* <Link className="link" to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link> */}
           <Voter id={articleInfo.articleInfo._id} votes={articleInfo.articleInfo.votes} updateVote={this.updateVote} />
-          <h3>Comments</h3>
+          <hr />
+          <h4>Comments:</h4>
           <CommentAdder id={articleInfo.articleInfo._id} addComment={this.addComment} />
           {this.state.comments.map((comment, index) => (
             <div key={index}>

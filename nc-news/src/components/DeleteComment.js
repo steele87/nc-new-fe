@@ -9,14 +9,14 @@ class CommentDeleter extends React.Component {
   }
 
   render() {
-  return (
-    <div>
-      <form onClick ={this.handleClick} >
-      <button>X</button>
-      </form>
-    </div>
-  
-  )
+    return (
+      <div className="likes">
+        <form onClick={this.handleClick} >
+          <p><button><i class="far fa-trash-alt"></i> </button>  Delete!</p>
+        </form>
+      </div>
+
+    )
   }
 }
 

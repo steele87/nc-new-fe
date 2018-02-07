@@ -22,7 +22,7 @@ class Users extends React.Component {
   render() {
     return (
       <div>
-        <h2>Users Page</h2>
+        <h2><i class="fas fa-users"></i> Users Page</h2>
         {this.state.users.map((user, index) => (
           <div key={index}>
             <Link className="link" to={`/users/${user.username}`}>{user.username} </Link>

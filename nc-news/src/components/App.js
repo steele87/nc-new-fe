@@ -57,11 +57,11 @@ class App extends Component {
 const Home = (props) => {
   return (
     <div>
-      <h2>Home Page</h2>
+      <h2><i class="fas fa-home"></i> Home Page</h2>
       {props.articles.map((article, index) => (
         <div key={index}>
           <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
-          <p>likes: {article.votes}</p>
+          <p><i class="far fa-thumbs-up"></i> likes: {article.votes}</p>
           <hr />
         </div>
       )
@@ -77,17 +77,17 @@ const Navbar = () => {
   };
   const navStyle = {
     backgroundColor: 'white',
-    margin: '2%',
+    margin: '5%',
   };
   return (
     <nav style={navStyle}>
-      <NavLink className="navLink" exact to="/" activeStyle={activeStyle}>Home</NavLink>
+      <NavLink className="navLink" exact to="/" activeStyle={activeStyle}><i class="fas fa-home"></i> Home</NavLink>
       {' | '}
-      <NavLink className="navLink" to="/topics" activeStyle={activeStyle}>Topics</NavLink>
+      <NavLink className="navLink" to="/topics" activeStyle={activeStyle}><i class="fas fa-book"></i> Topics</NavLink>
       {' | '}
-      <NavLink className="navLink" to="/articles" activeStyle={activeStyle}>Articles</NavLink>
+      <NavLink className="navLink" to="/articles" activeStyle={activeStyle}><i class="far fa-bookmark"></i> Articles</NavLink>
       {' | '}
-      <NavLink className="navLink" to="/users" activeStyle={activeStyle}>Users</NavLink>
+      <NavLink className="navLink" to="/users" activeStyle={activeStyle}><i class="fas fa-users"></i> Users</NavLink>
     </nav>
   );
 };
