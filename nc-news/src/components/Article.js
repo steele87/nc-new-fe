@@ -100,7 +100,7 @@ class Article extends React.Component {
     const articleInfo = this.state
     return (
       <div>
-        <h2><i class="far fa-bookmark"></i> Article Page</h2>
+        <h2><i className="far fa-bookmark"></i> Article Page</h2>
         <div>
           <h3>Article: {articleInfo.articleInfo.title}</h3>
           <p>{articleInfo.articleInfo.body}</p>

@@ -22,7 +22,7 @@ class Users extends React.Component {
   render() {
     return (
       <div>
-        <h2><i class="fas fa-users"></i> Users Page</h2>
+        <h2><i className="fas fa-users"></i> Users Page</h2>
         {this.state.users.map((user, index) => (
           <div key={index}>
             <img src={`${user.avatar_url}`} alt="user" style={{ width: 100 }} className="profileImg"/>

@@ -41,7 +41,7 @@ class Articles extends React.Component {
 
     return (
       <div>
-        <h2><i class="far fa-bookmark"></i> Articles Page</h2>
+        <h2><i className="far fa-bookmark"></i> Articles Page</h2>
         {this.state.articles.map((article, index) => (
           <div key={index}>
             <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>

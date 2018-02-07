@@ -49,8 +49,8 @@ class App extends Component {
           </div>
         </BrowserRouter>
         <div className="soicalMedia">
-        <a href="https://twitter.com/northcoders"><i class="fab fa-twitter-square"></i>   </a>
-        <a href="https://www.facebook.com/northcoders/"><i class="fab fa-facebook-square"></i>   </a>
+        <a href="https://twitter.com/northcoders"><i className="fab fa-twitter-square"></i>   </a>
+        <a href="https://www.facebook.com/northcoders/"><i className="fab fa-facebook-square"></i>   </a>
         </div>
       </div>
     );
@@ -85,13 +85,13 @@ const Navbar = () => {
   };
   return (
     <nav style={navStyle}>
-      <NavLink className="navLink" exact to="/" activeStyle={activeStyle}><i class="fas fa-home"></i> Home</NavLink>
+      <NavLink className="navLink" exact to="/" activeStyle={activeStyle}><i className="fas fa-home"></i> Home</NavLink>
       {' | '}
-      <NavLink className="navLink" to="/topics" activeStyle={activeStyle}><i class="fas fa-book"></i> Topics</NavLink>
+      <NavLink className="navLink" to="/topics" activeStyle={activeStyle}><i className="fas fa-book"></i> Topics</NavLink>
       {' | '}
-      <NavLink className="navLink" to="/articles" activeStyle={activeStyle}><i class="far fa-bookmark"></i> Articles</NavLink>
+      <NavLink className="navLink" to="/articles" activeStyle={activeStyle}><i className="far fa-bookmark"></i> Articles</NavLink>
       {' | '}
-      <NavLink className="navLink" to="/users" activeStyle={activeStyle}><i class="fas fa-users"></i> Users</NavLink>
+      <NavLink className="navLink" to="/users" activeStyle={activeStyle}><i className="fas fa-users"></i> Users</NavLink>
     </nav>
   );
 };

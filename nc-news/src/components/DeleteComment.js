@@ -12,7 +12,7 @@ class CommentDeleter extends React.Component {
     return (
       <div className="likes">
         <form onClick={this.handleClick} >
-          <p><button><i class="far fa-trash-alt"></i> </button>  Delete!</p>
+          <p><button><i className="far fa-trash-alt"></i> </button>  Delete!</p>
         </form>
       </div>
 
