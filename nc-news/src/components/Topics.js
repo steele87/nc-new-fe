@@ -24,7 +24,7 @@ class Topics extends React.Component {
       <div>
     <h2><i class="fas fa-book"></i> Topics Page</h2>
     {this.state.topics.map((topic, index) => (
-      <div key={index}>
+      <div key={index} className="topicBox">
         <Link className="link" to={`/topics/${topic.title}/articles`}>{topic.title}</Link>
         <hr />
       </div>

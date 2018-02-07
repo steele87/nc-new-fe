@@ -33,7 +33,7 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <Navbar className="navbar" />
+            <Navbar className="navBar" />
             <img className ="logo" src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png" /> 
             <h1>News</h1>
             <Switch>
@@ -48,6 +48,10 @@ class App extends Component {
             </Switch>
           </div>
         </BrowserRouter>
+        <div className="soicalMedia">
+        <a href="https://twitter.com/northcoders"><i class="fab fa-twitter-square"></i>   </a>
+        <a href="https://www.facebook.com/northcoders/"><i class="fab fa-facebook-square"></i>   </a>
+        </div>
       </div>
     );
   }
@@ -56,10 +60,10 @@ class App extends Component {
 
 const Home = (props) => {
   return (
-    <div>
+    <div >
       <h2><i class="fas fa-home"></i> Home Page</h2>
       {props.articles.map((article, index) => (
-        <div key={index}>
+        <div className="commentBox" key={index}>
           <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
           <p><i class="far fa-thumbs-up"></i> likes: {article.votes}</p>
           <hr />
