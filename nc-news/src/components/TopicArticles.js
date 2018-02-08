@@ -42,7 +42,7 @@ class TopicArticles extends React.Component {
             </div>
           )
           )
-          : <div ><i className="far fa-frown fa-lg " style={{ color: 'tomato' }} aria-hidden="true"></i><p>Sorry, no articles are currently available!</p></div>}
+          : <div className="frownFace"><i className="far fa-frown fa-lg " style={{ color: 'tomato' }} aria-hidden="true"></i><p>Sorry, no articles are currently available!</p></div>}
       </div>
     )
   }

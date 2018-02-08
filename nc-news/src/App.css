@@ -92,6 +92,11 @@ nav {
   padding: 5%;
 }
 
+.frownFace {
+  text-align: center;
+  font-size: 200%;
+}
+
 .commentBox {
   width: 80%;
   height: 10%;

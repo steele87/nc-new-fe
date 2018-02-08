@@ -33,8 +33,8 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <Navbar className="navBar" />
             <img className ="logo" src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png" alt="Northcoders logo"/> 
+            <Navbar className="navBar" />
             <h1>News</h1>
             <Switch>
               <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles} />} />
