@@ -6,7 +6,7 @@ const CommentAdder = ({ id, addComment, }) => {
     <div className="commentBox">
       <form onSubmit={(event) => addComment(id, event)} >
         <input type="text" className="commentBox" name="comment" placeholder="add comment"></input>
-        <p> <i class="fas fa-plus"></i> <input type="submit" value="Submit comment!" className="addButton" />  </p>
+        <p> <i className="fas fa-plus link"></i> <input type="submit" value="Submit comment!" className="addButton" />  </p>
       </form>
     </div>
 

@@ -21,7 +21,7 @@ class App extends Component {
       })
       .then((articles) => {
         const articleList = articles.topic
-        articleList.sort(function(a, b){
+        articleList.sort(function (a, b) {
           return a.votes < b.votes;
         });
         this.setState({
@@ -84,11 +84,11 @@ const Navbar = () => {
     color: 'rgb(209, 35, 35)'
   };
   const navStyle = {
-    backgroundColor: 'white',
-    margin: '5%',
+    padding: '3%',
   };
   return (
     <nav style={navStyle}>
+      {' { '}
       <NavLink className="navLink" exact to="/" activeStyle={activeStyle}><i className="fas fa-home"></i> Home</NavLink>
       {' | '}
       <NavLink className="navLink" to="/topics" activeStyle={activeStyle}><i className="fas fa-book"></i> Topics</NavLink>
@@ -96,6 +96,7 @@ const Navbar = () => {
       <NavLink className="navLink" to="/articles" activeStyle={activeStyle}><i className="far fa-bookmark"></i> Articles</NavLink>
       {' | '}
       <NavLink className="navLink" to="/users" activeStyle={activeStyle}><i className="fas fa-users"></i> Users</NavLink>
+      {' } '}
     </nav>
   );
 };

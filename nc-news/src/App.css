@@ -70,15 +70,16 @@ nav {
   top: 0;
   height: 5%;
   width:80%;
-  padding: 2%;
-  text-align: center;
+  padding: 5%;
 }
 
 .navLink {
+  background-color: rgba(245, 245, 245, 0.856);
   color: black;
   text-align: center;
   padding: 1%;
-  font-size: 90%;
+  font-size: 70%;
+  font-weight: bold;
 }
 
 .likes {
@@ -109,6 +110,7 @@ nav {
 
 .addButton {
   color: white;
+  background-color: black;
 }
 
 .profileImg {
