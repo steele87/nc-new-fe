@@ -33,6 +33,9 @@ class Article extends React.Component {
       })
       .then((comment) => {
         const commentList = comment.comments
+        commentList.sort(function(a, b){
+          return a.votes < b.votes;
+        });
         this.setState({
           comments: commentList
         })

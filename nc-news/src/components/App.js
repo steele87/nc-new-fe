@@ -21,8 +21,11 @@ class App extends Component {
       })
       .then((articles) => {
         const articleList = articles.topic
+        articleList.sort(function(a, b){
+          return a.votes < b.votes;
+        });
         this.setState({
-          articles: articleList
+          articles: articleList.slice(0, 3)
         })
       })
   }
@@ -33,7 +36,7 @@ class App extends Component {
       <div className="App">
         <BrowserRouter>
           <div>
-            <img className ="logo" src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png" alt="Northcoders logo"/> 
+            <img className="logo" src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png" alt="Northcoders logo" />
             <Navbar className="navBar" />
             <h1>News</h1>
             <Switch>
@@ -49,8 +52,8 @@ class App extends Component {
           </div>
         </BrowserRouter>
         <div className="soicalMedia">
-        <a href="https://twitter.com/northcoders"><i className="fab fa-twitter-square"></i>   </a>
-        <a href="https://www.facebook.com/northcoders/"><i className="fab fa-facebook-square"></i>   </a>
+          <a href="https://twitter.com/northcoders"><i className="fab fa-twitter-square"></i>   </a>
+          <a href="https://www.facebook.com/northcoders/"><i className="fab fa-facebook-square"></i>   </a>
         </div>
       </div>
     );
@@ -62,6 +65,7 @@ const Home = (props) => {
   return (
     <div >
       <h2><i class="fas fa-home"></i> Home Page</h2>
+      <h3>Top Articles</h3>
       {props.articles.map((article, index) => (
         <div className="commentBox" key={index}>
           <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
