@@ -62,14 +62,14 @@ button {
 }
 
 .link {
-  color: rgb(209, 35, 35);
+  color: red;
 }
 
 nav {
   position: fixed;
   top: 0;
   height: 5%;
-  width:80%;
+  width:90%;
   padding: 5%;
 }
 
@@ -125,9 +125,29 @@ nav {
 }
 
 .fa-thumbs-up {
-  color: rgb(0, 255, 42);
+  color: lightgreen;
 }
 
 .fa-thumbs-down {
-  color:rgb(0, 119, 255)
+  color: lightsalmon;
+}
+
+.fa-home {
+  color: yellow;
+}
+
+.fa-book {
+  color:green;
+}
+
+.fa-bookmark {
+  color:orange;
+}
+
+.fa-users {
+  color: purple;
+}
+
+.fa-user {
+  color: fuchsia;
 }
