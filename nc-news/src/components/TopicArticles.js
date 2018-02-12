@@ -21,6 +21,9 @@ class TopicArticles extends React.Component {
       })
       .then((articles) => {
         const topicArticles = articles.articles;
+        topicArticles.sort(function (a, b) {
+          return b.votes - a.votes;
+        });
         this.setState({
           articles: topicArticles,
           topic: this.props.match.params.topic,
@@ -38,6 +41,7 @@ class TopicArticles extends React.Component {
               <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
               {' | '}
               <Link className="link" to={`/users/${article.created_by}`}>by: {article.created_by} </Link >
+              <p><i class="far fa-thumbs-up"></i> likes: {article.votes}</p>
               <hr />
             </div>
           )

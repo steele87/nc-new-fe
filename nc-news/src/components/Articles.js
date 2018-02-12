@@ -16,7 +16,7 @@ class Articles extends React.Component {
       .then((articles) => {
         const articleList = articles.topic
         articleList.sort(function(a, b){
-          return a.votes < b.votes;
+          return b.votes - a.votes;
         });
         this.setState({
           articles: articleList

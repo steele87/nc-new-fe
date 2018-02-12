@@ -22,11 +22,10 @@ class App extends Component {
       .then((articles) => {
         let articleList = articles.topic
         return articleList.sort(function (a, b) {
-          return a.votes < b.votes;
+          return b.votes - a.votes;
         });
       })
-      .then ((sortedArticles) => {
-        console.log(sortedArticles)
+      .then((sortedArticles) => {
         this.setState({
           articles: sortedArticles.slice(0, 3)
         })
