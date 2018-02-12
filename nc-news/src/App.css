@@ -111,10 +111,15 @@ nav {
 .addButton {
   color: white;
   background-color: black;
+  border-radius: 10%;
 }
 
 .profileImg {
   border: white;
   border-style: solid;
   border-radius: 50%;
+}
+
+.fa-comments {
+  color: greenyellow;
 }

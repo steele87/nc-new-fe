@@ -33,7 +33,7 @@ class Article extends React.Component {
       })
       .then((comment) => {
         const commentList = comment.comments
-        commentList.sort(function(a, b){
+        commentList.sort(function (a, b) {
           return a.votes < b.votes;
         });
         this.setState({
@@ -100,7 +100,7 @@ class Article extends React.Component {
 
 
   render() {
-    const articleInfo = this.state
+    const articleInfo = this.state;
     return (
       <div>
         <h2><i className="far fa-bookmark"></i> Article Page</h2>
@@ -110,7 +110,7 @@ class Article extends React.Component {
           {/* <Link className="link" to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link> */}
           <Voter id={articleInfo.articleInfo._id} votes={articleInfo.articleInfo.votes} updateVote={this.updateVote} />
           <hr />
-          <h4>Comments:</h4>
+          <h4><i className="fas fa-comments"></i> Comments:</h4>
           <CommentAdder id={articleInfo.articleInfo._id} addComment={this.addComment} />
           {this.state.comments.map((comment, index) => (
             <div key={index}>
