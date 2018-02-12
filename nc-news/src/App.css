@@ -123,3 +123,11 @@ nav {
 .fa-comments {
   color: greenyellow;
 }
+
+.fa-thumbs-up {
+  color: rgb(0, 255, 42);
+}
+
+.fa-thumbs-down {
+  color:rgb(0, 119, 255)
+}
