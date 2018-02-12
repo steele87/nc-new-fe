@@ -20,12 +20,15 @@ class App extends Component {
         return res.json();
       })
       .then((articles) => {
-        const articleList = articles.topic
-        articleList.sort(function (a, b) {
+        let articleList = articles.topic
+        return articleList.sort(function (a, b) {
           return a.votes < b.votes;
         });
+      })
+      .then ((sortedArticles) => {
+        console.log(sortedArticles)
         this.setState({
-          articles: articleList.slice(0, 3)
+          articles: sortedArticles.slice(0, 3)
         })
       })
   }

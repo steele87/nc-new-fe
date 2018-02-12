@@ -107,7 +107,7 @@ class Article extends React.Component {
         <div>
           <h3>Article: {articleInfo.articleInfo.title}</h3>
           <p>{articleInfo.articleInfo.body}</p>
-          {/* <Link className="link" to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link> */}
+          <Link className="link" to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
           <Voter id={articleInfo.articleInfo._id} votes={articleInfo.articleInfo.votes} updateVote={this.updateVote} />
           <hr />
           <h4><i className="fas fa-comments"></i> Comments:</h4>

@@ -36,8 +36,8 @@ class TopicArticles extends React.Component {
           this.state.articles.map((article, index) => (
             <div key={index}>
               <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
-              {/* {' | '} */}
-              {/* <Link className="link" to={`/users/${article.created_by}`}>by: {article.created_by} </Link > */}
+              {' | '}
+              <Link className="link" to={`/users/${article.created_by}`}>by: {article.created_by} </Link >
               <hr />
             </div>
           )
