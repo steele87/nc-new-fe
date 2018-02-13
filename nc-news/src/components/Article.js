@@ -116,6 +116,7 @@ class Article extends React.Component {
           <hr />
           <h4><i className="fas fa-comments"></i> Comments: {this.state.comments.length}</h4>
           <CommentAdder id={articleInfo.articleInfo._id} addComment={this.addComment} />
+          <hr />
           {this.state.comments.map((comment, index) => (
             <div key={index}>
               <p><i className="fas fa-comments"></i> {comment.body}</p>
