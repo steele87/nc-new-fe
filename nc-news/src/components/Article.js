@@ -114,12 +114,12 @@ class Article extends React.Component {
           <Link className="link" to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
           <Voter id={articleInfo.articleInfo._id} votes={articleInfo.articleInfo.votes} updateVote={this.updateVote} />
           <hr />
-          <h4><i className="fas fa-comments"></i> Comments:</h4>
+          <h4><i className="fas fa-comments"></i> Comments: {this.state.comments.length}</h4>
           <CommentAdder id={articleInfo.articleInfo._id} addComment={this.addComment} />
           {this.state.comments.map((comment, index) => (
             <div key={index}>
-              <p>{comment.body}</p>
-              <Link className="link" to={`/users/${comment.created_by}`}> Added by {comment.created_by} </Link>
+              <p><i className="fas fa-comments"></i> {comment.body}</p>
+              <Link className="link" to={`/users/${comment.created_by}`}> <i className="fas fa-user"></i> Added by {comment.created_by} </Link>
               <CommentVoter id={comment._id} votes={comment.votes} commentVote={this.commentVote} />
               <CommentDeleter id={comment._id} deleteComment={this.deleteComment} />
               <hr />

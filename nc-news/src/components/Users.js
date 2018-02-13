@@ -27,7 +27,7 @@ class Users extends React.Component {
           <div className="frownFace" key={index}>
             <img src={`${user.avatar_url}`} alt="user" style={{ width: 100 }} className="profileImg" />
             <br />
-            <Link className="link" to={`/users/${user.username}`}>{user.username} </Link>
+            <Link className="link" to={`/users/${user.username}`}><i className="fas fa-user"></i> {user.username} </Link>
             <hr />
           </div>
         )
