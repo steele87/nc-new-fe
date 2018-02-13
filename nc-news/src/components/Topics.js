@@ -14,7 +14,7 @@ class Topics extends React.Component {
       .then((topics) => {
         const topicsList = topics.topic
         this.setState({
-          topics:topicsList
+          topics: topicsList
         })
       })
   }
@@ -22,15 +22,15 @@ class Topics extends React.Component {
   render() {
     return (
       <div>
-    <h2><i className="fas fa-book"></i> Topics Page</h2>
-    {this.state.topics.map((topic, index) => (
-      <div key={index} className="topicBox">
-        <Link className="link" to={`/topics/${topic.title}/articles`}>{topic.title}</Link>
-        <hr />
+        <h2><i className="fas fa-book"></i> Topics Page</h2>
+        {this.state.topics.map((topic, index) => (
+          <div key={index} className="topicBox">
+            <Link className="link" to={`/topics/${topic.title}/articles`}>{topic.title}</Link>
+            <hr />
+          </div>
+        )
+        )}
       </div>
-    )
-    )}
-  </div>
     )
   }
 }

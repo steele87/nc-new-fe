@@ -66,12 +66,12 @@ class App extends Component {
 const Home = (props) => {
   return (
     <div >
-      <h2><i class="fas fa-home"></i> Home Page</h2>
+      <h2><i className="fas fa-home"></i> Home Page</h2>
       <h3>Top Articles</h3>
       {props.articles.map((article, index) => (
         <div className="commentBox" key={index}>
           <Link className="link" to={`/articles/${article._id}`}>{article.title}</Link>
-          <p><i class="far fa-thumbs-up"></i> likes: {article.votes}</p>
+          <p><i className="far fa-thumbs-up"></i> likes: {article.votes}</p>
           <hr />
         </div>
       )
@@ -87,16 +87,17 @@ const Navbar = () => {
   };
   const navStyle = {
     padding: '3%',
+    width: '100%',
   };
   return (
     <nav style={navStyle}>
       {' { '}
       <NavLink className="navLink" exact to="/" activeStyle={activeStyle}><i className="fas fa-home"></i> Home</NavLink>
-      {' | '}
+      {' || '}
       <NavLink className="navLink" to="/topics" activeStyle={activeStyle}><i className="fas fa-book"></i> Topics</NavLink>
-      {' | '}
+      {' || '}
       <NavLink className="navLink" to="/articles" activeStyle={activeStyle}><i className="far fa-bookmark"></i> Articles</NavLink>
-      {' | '}
+      {' || '}
       <NavLink className="navLink" to="/users" activeStyle={activeStyle}><i className="fas fa-users"></i> Users</NavLink>
       {' } '}
     </nav>

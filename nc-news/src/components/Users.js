@@ -25,7 +25,7 @@ class Users extends React.Component {
         <h2><i className="fas fa-users"></i> Users Page</h2>
         {this.state.users.map((user, index) => (
           <div className="frownFace" key={index}>
-            <img src={`${user.avatar_url}`} alt="user" style={{ width: 100 }} className="profileImg"/>
+            <img src={`${user.avatar_url}`} alt="user" style={{ width: 100 }} className="profileImg" />
             <br />
             <Link className="link" to={`/users/${user.username}`}>{user.username} </Link>
             <hr />
