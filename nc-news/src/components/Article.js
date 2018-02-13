@@ -65,7 +65,6 @@ class Article extends React.Component {
     deleteRequest(id)
     const refreshedComments = this.state.comments.filter((comment) => {
       if (comment._id !== id) return comment
-      return comment
     })
     this.setState({
       comments: refreshedComments
@@ -123,16 +122,9 @@ class Article extends React.Component {
               <Link className="link" to={`/users/${comment.created_by}`}> <i className="fas fa-user"></i> Added by {comment.created_by} </Link>
               <CommentVoter id={comment._id} votes={comment.votes} commentVote={this.commentVote} />
 
-          {comment.created_by === 'northcoder' ? 
-          <CommentDeleter id={comment._id} deleteComment={this.deleteComment} />
-        : <p></p>}
-
-
-              
-
-
-
-
+              {comment.created_by === 'northcoder' ?
+                <CommentDeleter id={comment._id} deleteComment={this.deleteComment} />
+                : <p></p>}
               <hr />
             </div>
           )

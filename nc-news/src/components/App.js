@@ -12,6 +12,7 @@ import Article from './Article';
 class App extends Component {
   state = {
     articles: [],
+    northcoder: {}
   }
 
   componentDidMount() {
@@ -30,16 +31,29 @@ class App extends Component {
           articles: sortedArticles.slice(0, 3)
         })
       })
+    fetch(`${process.env.REACT_APP_API_URL}/users/northcoder`)
+      .then((res) => {
+        return res.json();
+      })
+      .then((user) => {
+        const userInfo = user.user
+        this.setState({
+          northcoder: userInfo[0]
+        })
+      })
   }
 
 
   render() {
+    const user = this.state.northcoder;
+    console.log(user)
     return (
       <div className="App">
         <BrowserRouter>
           <div>
-            <img className="logo" src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png" alt="Northcoders logo" />
             <Navbar className="navBar" />
+            <NavLink className="loggedIn" exact to="/users/northcoder"><i className="fas fa-user"></i> {user.username} <img src={`${user.avatar_url}`} alt="user" style={{ height: 30 }} className="profileImg" /></NavLink>
+            <img className="logo" src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png" alt="Northcoders logo" />
             <h1>News</h1>
             <Switch>
               <Route exact path='/' render={(props) => <Home {...props} articles={this.state.articles} />} />

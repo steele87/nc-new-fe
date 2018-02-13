@@ -70,7 +70,6 @@ nav {
   top: 0;
   height: 5%;
   width:90%;
-  padding: 5%;
 }
 
 .navLink {
@@ -123,6 +122,20 @@ nav {
   border: white;
   border-style: solid;
   border-radius: 50%;
+}
+
+.loggedIn {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  padding: 2%;
+  background-color: rgba(245, 245, 245, 0.856);
+  border-radius: 5%;
+  color: black;
+  text-align: center;
+  padding: 1%;
+  font-size: 85%;
+  font-weight: bold;
 }
 
 .fa-comments {
