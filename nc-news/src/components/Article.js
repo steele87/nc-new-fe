@@ -6,8 +6,9 @@ import changeVote from '../api';
 import changeCommentVote from '../commentVoteApi';
 import CommentAdder from './CommentAdder';
 import postComment from '../commentAdderApi';
-import deleteRequest from '../deleteCommentApi'
-import CommentDeleter from './DeleteComment'
+import deleteRequest from '../deleteCommentApi';
+import CommentDeleter from './DeleteComment';
+import moment from 'moment';
 
 class Article extends React.Component {
   state = {
@@ -104,6 +105,7 @@ class Article extends React.Component {
 
   render() {
     const articleInfo = this.state;
+    console.log(this.state.comments)
     return (
       <div>
         <h2><i className="far fa-bookmark"></i> Article Page</h2>
@@ -121,7 +123,7 @@ class Article extends React.Component {
               <p><i className="fas fa-comments"></i> {comment.body}</p>
               <Link className="link" to={`/users/${comment.created_by}`}> <i className="fas fa-user"></i> Added by {comment.created_by} </Link>
               <CommentVoter id={comment._id} votes={comment.votes} commentVote={this.commentVote} />
-
+              <p><i class="far fa-clock"></i> {moment(comment.created_at).fromNow()}  </p>
               {comment.created_by === 'northcoder' ?
                 <CommentDeleter id={comment._id} deleteComment={this.deleteComment} />
                 : <p></p>}

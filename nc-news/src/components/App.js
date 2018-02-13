@@ -52,7 +52,7 @@ class App extends Component {
         <BrowserRouter>
           <div>
             <Navbar className="navBar" />
-            <NavLink className="loggedIn" exact to="/users/northcoder"><i className="fas fa-user"></i> {user.username} <img src={`${user.avatar_url}`} alt="user" style={{ height: 30 }} className="profileImg" /></NavLink>
+            <NavLink className="loggedIn" to="/users/northcoder"><i className="fas fa-user"></i> {user.username} <img src={`${user.avatar_url}`} alt="user" style={{ height: 30 }} className="profileImg" /></NavLink>
             <img className="logo" src="https://northcoders.com/images/logos/learn_to_code_manchester_rw_second.png" alt="Northcoders logo" />
             <h1>News</h1>
             <Switch>
