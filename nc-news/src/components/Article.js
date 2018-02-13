@@ -122,7 +122,17 @@ class Article extends React.Component {
               <p><i className="fas fa-comments"></i> {comment.body}</p>
               <Link className="link" to={`/users/${comment.created_by}`}> <i className="fas fa-user"></i> Added by {comment.created_by} </Link>
               <CommentVoter id={comment._id} votes={comment.votes} commentVote={this.commentVote} />
-              <CommentDeleter id={comment._id} deleteComment={this.deleteComment} />
+
+          {comment.created_by === 'northcoder' ? 
+          <CommentDeleter id={comment._id} deleteComment={this.deleteComment} />
+        : <p></p>}
+
+
+              
+
+
+
+
               <hr />
             </div>
           )
