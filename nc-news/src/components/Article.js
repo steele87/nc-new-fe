@@ -34,7 +34,7 @@ class Article extends React.Component {
       .then((comment) => {
         const commentList = comment.comments
         commentList.sort(function (a, b) {
-          return a.votes < b.votes;
+          return b.votes - a.votes;
         });
         this.setState({
           comments: commentList
@@ -65,6 +65,7 @@ class Article extends React.Component {
     deleteRequest(id)
     const refreshedComments = this.state.comments.filter((comment) => {
       if (comment._id !== id) return comment
+      return comment
     })
     this.setState({
       comments: refreshedComments
@@ -90,6 +91,9 @@ class Article extends React.Component {
             })
             .then((comment) => {
               const commentList = comment.comments
+              commentList.sort(function (a, b) {
+                return b.votes - a.votes;
+              });
               this.setState({
                 comments: commentList
               })
