@@ -14,7 +14,7 @@ class Articles extends React.Component {
         return res.json();
       })
       .then((articles) => {
-        const articleList = articles.topic
+        const articleList = articles.topics
         articleList.sort(function (a, b) {
           return b.votes - a.votes;
         });

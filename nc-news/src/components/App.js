@@ -20,7 +20,7 @@ class App extends Component {
         return res.json();
       })
       .then((articles) => {
-        let articleList = articles.topic
+        let articleList = articles.topics
         return articleList.sort(function (a, b) {
           return b.votes - a.votes;
         });
