@@ -12,7 +12,7 @@ import Article from './Article';
 class App extends Component {
   state = {
     articles: [],
-    northcoder: {}
+    northcoder: {},
   }
 
   componentDidMount() {

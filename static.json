@@ -2,6 +2,6 @@
   "root": "dist/",
   "https_only": true,
   "routes": {
-    "./public": "index.html"
+    "./nc-news/public": "index.html"
   }
 }
