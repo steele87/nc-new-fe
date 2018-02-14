@@ -46,7 +46,6 @@ class App extends Component {
 
   render() {
     const user = this.state.northcoder;
-    console.log(user)
     return (
       <div className="App">
         <BrowserRouter>
