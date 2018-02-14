@@ -128,7 +128,8 @@ nav {
   position: fixed;
   bottom: 0;
   right: 0;
-  padding: 2%;
+  margin-right: 10%;
+  margin-bottom: 2%;
   background-color: rgba(34, 238, 187, 0.856);
   border-radius: 5%;
   color: black;
