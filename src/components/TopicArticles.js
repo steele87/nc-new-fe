@@ -26,7 +26,8 @@ class TopicArticles extends React.Component {
           topicArticles.sort(function (a, b) {
             return b.votes - a.votes;
           });
-        } else return topicArticles;
+          return topicArticles;
+        } return topicArticles;
       })
       .then((topicArticles) => {
         this.setState({
