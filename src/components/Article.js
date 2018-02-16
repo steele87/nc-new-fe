@@ -105,7 +105,6 @@ class Article extends React.Component {
 
   render() {
     const articleInfo = this.state;
-    console.log(this.state.comments)
     return (
       <div>
         <h2><i className="far fa-bookmark"></i> Article Page</h2>
