@@ -1,7 +1,7 @@
 {
-  "root": "dist/",
-  "https_only": true,
+  "root": "build/",
+  "clean_urls": false,
   "routes": {
-    "./public": "index.html"
+    "/**": "index.html"
   }
 }
