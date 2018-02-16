@@ -12,8 +12,9 @@ import moment from 'moment';
 
 class Article extends React.Component {
   state = {
-    articleInfo: {},
+    articleInfo: [],
     comments: [],
+    hidden: false,
   }
 
   componentDidMount() {
@@ -23,24 +24,36 @@ class Article extends React.Component {
         return res.json();
       })
       .then((article) => {
-        this.setState({
-          articleInfo: article.article
-        })
+        let returnedArticle = [{}];
+        if (!article.message) {
+          return returnedArticle = article.article;
+        } else return returnedArticle;
       })
+      .then((articleInfo) => {
+        this.setState({
+          articleInfo: articleInfo
+        });
+      });
+        
 
     fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}/comments`)
       .then((commentInfo) => {
         return commentInfo.json();
       })
       .then((comment) => {
-        const commentList = comment.comments
+        let commentList = []
+        if (!comment.message) {
+          commentList = comment.comments
         commentList.sort(function (a, b) {
           return b.votes - a.votes;
         });
-        this.setState({
-          comments: commentList
-        })
+      } return commentList;
+    })
+    .then((commentList) => {
+      this.setState({
+        comments: commentList,
       })
+    })
   }
 
   addComment = (id, event) => {
@@ -104,19 +117,22 @@ class Article extends React.Component {
 
 
   render() {
-    const articleInfo = this.state;
+    const articleInfo = this.state.articleInfo;
     return (
       <div>
         <h2><i className="far fa-bookmark"></i> Article Page</h2>
         <div>
-          <h3>Article: {articleInfo.articleInfo.title}</h3>
-          <p>{articleInfo.articleInfo.body}</p>
-          <Link className="link" to={`/users/${articleInfo.articleInfo.created_by}`}>by {articleInfo.articleInfo.created_by} </Link>
-          <Voter id={articleInfo.articleInfo._id} votes={articleInfo.articleInfo.votes} updateVote={this.updateVote} />
+          {!articleInfo.length?
+          <div>
+          <h3>Article: {articleInfo.title}</h3>
+          <p>{articleInfo.body}</p>
+          <Link className="link" to={`/users/${articleInfo.created_by}`}>by {articleInfo.created_by} </Link>
+          <Voter id={articleInfo._id} votes={articleInfo.votes} updateVote={this.updateVote} />
           <hr />
           <h4><i className="fas fa-comments"></i> Comments: {this.state.comments.length}</h4>
-          <CommentAdder id={articleInfo.articleInfo._id} addComment={this.addComment} />
-          <hr />
+          <CommentAdder id={articleInfo._id} addComment={this.addComment} />
+          </div>
+          : <div className="frownFace"><i className="far fa-frown fa-lg " style={{ color: 'tomato' }} aria-hidden="true"></i><p>Sorry, article does not exist!</p></div> }
           {this.state.comments.map((comment, index) => (
             <div key={index}>
               <p><i className="fas fa-comments"></i> {comment.body}</p>
