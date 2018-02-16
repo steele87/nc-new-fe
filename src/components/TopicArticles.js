@@ -20,16 +20,21 @@ class TopicArticles extends React.Component {
         return res.json();
       })
       .then((articles) => {
-        const topicArticles = articles.articles;
-        topicArticles.sort(function (a, b) {
-          return b.votes - a.votes;
-        });
+        let topicArticles = [];
+        if (!articles.message) {
+          let topicArticles = articles.articles;
+          topicArticles.sort(function (a, b) {
+            return b.votes - a.votes;
+          });
+        } else return topicArticles;
+      })
+      .then((topicArticles) => {
         this.setState({
           articles: topicArticles,
           topic: this.props.match.params.topic,
         })
       })
-  }
+  };
 
   render() {
     return (
