@@ -68,6 +68,7 @@ button {
 nav {
   position: fixed;
   top: 0;
+  left: 0;
   height: 5%;
   width:90%;
 }
