@@ -20,10 +20,11 @@ class UserComponent extends React.Component {
   }
 
   render() {
+    const userInfo = this.state.user;
     return (
       <div>
         <h2><i className="fas fa-user"></i> User Page</h2>
-        {this.state.user.map((user, index) => (
+        {userInfo.map((user, index) => (
           <div className="frownFace" key={index}>
             <img src={`${user.avatar_url}`} alt="user" style={{ width: 150 }} className="profileImg" />
             <p>Name: {user.name}</p>
@@ -32,6 +33,9 @@ class UserComponent extends React.Component {
           </div>
         )
         )}
+        <div>
+          {!userInfo.length ? <div className="frownFace"><i className="far fa-frown fa-lg " style={{ color: 'tomato' }} aria-hidden="true"></i><p>Sorry, user does not exist!</p></div> : <p></p>}
+        </div>
       </div>
     )
   }
