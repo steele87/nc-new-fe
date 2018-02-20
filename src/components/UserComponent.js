@@ -27,7 +27,7 @@ class UserComponent extends React.Component {
         {userInfo.map((user, index) => (
           <div className="frownFace" key={index}>
             <img src={`${user.avatar_url}`} alt="user" style={{ width: 150 }} className="profileImg" />
-            <p>Name: {user.name}</p>
+            <p>Name: {user.name} </p>
             <p>username: {user.username} </p>
             <hr />
           </div>
