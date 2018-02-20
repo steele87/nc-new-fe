@@ -1,10 +1,10 @@
-#Northcoders News
+# Northcoders News
 
 Northcoders News is a social news aggregation site developed with React.
 
 The site has been deployed to Heroku https://nc-news101.herokuapp.com/
 
-##Setup
+## Setup
 
 You will need Node.js v8.4.0 npm and git installed before being able to run this project.
 
@@ -26,7 +26,7 @@ To check if git is installed on your machine please enter the following commitng
 
 If you do not already have git installed on your machine please follow this guide. https://git-scm.com/
 
-##Installation
+## Installation
 
 To run this project you will need to clone it onto your local machine and install all dependencies.
 
