@@ -2,7 +2,7 @@
 
 Northcoders News is a social news aggregation site developed with React.
 
-The site has been deployed to Heroku [here] (https://nc-news101.herokuapp.com/)
+The site has been deployed to Heroku https://nc-news101.herokuapp.com/
 
 ##Setup
 
