@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 class Topics extends React.Component {
   state = {
-    topics: []
+    topics: [],
+    error: null,
   }
 
   componentDidMount() {
@@ -17,9 +18,15 @@ class Topics extends React.Component {
           topics: topicsList
         })
       })
+      .catch(error => {
+        this.setState({
+          error,
+        })
+      })
   }
 
   render() {
+    if (this.state.error) return this.state.error;
     return (
       <div>
         <h2><i className="fas fa-book"></i> Topics Page</h2>

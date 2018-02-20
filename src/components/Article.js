@@ -15,6 +15,8 @@ class Article extends React.Component {
     articleInfo: [],
     comments: [],
     hidden: false,
+    error: null,
+    loading: true,
   }
 
   componentDidMount() {
@@ -33,7 +35,13 @@ class Article extends React.Component {
         this.setState({
           articleInfo: articleInfo
         });
-      });
+      })
+      .catch(error => {
+        this.setState({
+          error,
+          loading: false
+        })
+      })
 
 
     fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}/comments`)
@@ -52,6 +60,12 @@ class Article extends React.Component {
       .then((commentList) => {
         this.setState({
           comments: commentList,
+        })
+      })
+      .catch(error => {
+        this.setState({
+          error,
+          loading: false
         })
       })
   }
@@ -121,6 +135,7 @@ class Article extends React.Component {
 
   render() {
     const articleInfo = this.state.articleInfo;
+    if (!this.state.loading && this.state.error) return this.state.error
     return (
       <div>
         <h2><i className="far fa-bookmark"></i> Article Page</h2>

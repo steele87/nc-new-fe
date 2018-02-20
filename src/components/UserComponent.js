@@ -2,7 +2,8 @@ import React from 'react';
 
 class UserComponent extends React.Component {
   state = {
-    user: []
+    user: [],
+    error: null,
   }
 
   componentDidMount() {
@@ -17,10 +18,16 @@ class UserComponent extends React.Component {
           user: userInfo
         })
       })
+      .catch(error => {
+        this.setState({
+          error,
+        })
+      })
   }
 
   render() {
     const userInfo = this.state.user;
+    if (this.state.error) return this.state.error;
     return (
       <div>
         <h2><i className="fas fa-user"></i> User Page</h2>

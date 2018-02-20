@@ -5,7 +5,8 @@ import changeVote from '../api';
 
 class Articles extends React.Component {
   state = {
-    articles: []
+    articles: [],
+    error: null,
   }
 
   componentDidMount() {
@@ -20,6 +21,11 @@ class Articles extends React.Component {
         });
         this.setState({
           articles: articleList
+        })
+      })
+      .catch(error => {
+        this.setState({
+          error,
         })
       })
   }
@@ -38,10 +44,15 @@ class Articles extends React.Component {
           articles: newArticles
         })
       })
+      .catch(error => {
+        this.setState({
+          error,
+        })
+      })
   }
 
   render() {
-
+    if (this.state.error) return this.state.error;
     return (
       <div>
         <h2><i className="far fa-bookmark"></i> Articles Page</h2>

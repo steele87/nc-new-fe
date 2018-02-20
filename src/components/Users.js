@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 
 class Users extends React.Component {
   state = {
-    users: []
+    users: [],
+    error: null,
   }
 
   componentDidMount() {
@@ -17,9 +18,15 @@ class Users extends React.Component {
           users: userList
         })
       })
+      .catch(error => {
+        this.setState({
+          error,
+        })
+      })
   }
 
   render() {
+    if (this.state.error) return this.state.error;
     return (
       <div>
         <h2><i className="fas fa-users"></i> Users Page</h2>

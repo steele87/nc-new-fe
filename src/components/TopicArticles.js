@@ -5,6 +5,7 @@ class TopicArticles extends React.Component {
   state = {
     articles: [],
     topic: '',
+    error: null,
   }
 
   componentDidMount() {
@@ -35,9 +36,15 @@ class TopicArticles extends React.Component {
           topic: this.props.match.params.topic,
         })
       })
+      .catch(error => {
+        this.setState({
+          error,
+        })
+      })
   };
 
   render() {
+    if (this.state.error) return this.state.error
     return (
       <div>
         <h2>{this.state.topic} Page</h2>
