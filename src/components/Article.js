@@ -78,7 +78,8 @@ class Article extends React.Component {
   deleteComment = (id) => {
     deleteRequest(id)
     const refreshedComments = this.state.comments.filter((comment) => {
-      if (comment._id !== id) return comment
+      if (comment._id !== id) {return comment}
+      return comment
     })
     this.setState({
       comments: refreshedComments

@@ -12,7 +12,7 @@ class Topics extends React.Component {
         return res.json();
       })
       .then((topics) => {
-        const topicsList = topics.topic
+        const topicsList = topics.topics
         this.setState({
           topics: topicsList
         })
