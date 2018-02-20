@@ -34,7 +34,7 @@ class Article extends React.Component {
           articleInfo: articleInfo
         });
       });
-        
+
 
     fetch(`${process.env.REACT_APP_API_URL}/articles/${articleId}/comments`)
       .then((commentInfo) => {
@@ -44,16 +44,16 @@ class Article extends React.Component {
         let commentList = []
         if (!comment.message) {
           commentList = comment.comments
-        commentList.sort(function (a, b) {
-          return b.votes - a.votes;
-        });
-      } return commentList;
-    })
-    .then((commentList) => {
-      this.setState({
-        comments: commentList,
+          commentList.sort(function (a, b) {
+            return b.votes - a.votes;
+          });
+        } return commentList;
       })
-    })
+      .then((commentList) => {
+        this.setState({
+          comments: commentList,
+        })
+      })
   }
 
   addComment = (id, event) => {
@@ -77,9 +77,11 @@ class Article extends React.Component {
 
   deleteComment = (id) => {
     deleteRequest(id)
+    // eslint-disable-next-line 
     const refreshedComments = this.state.comments.filter((comment) => {
-      if (comment._id !== id) {return comment}
-      return comment
+      if (comment._id !== id) return comment
+      // eslint-disable-next-line 
+      comment
     })
     this.setState({
       comments: refreshedComments
@@ -123,17 +125,17 @@ class Article extends React.Component {
       <div>
         <h2><i className="far fa-bookmark"></i> Article Page</h2>
         <div>
-          {!articleInfo.length?
-          <div>
-          <h3>Article: {articleInfo.title}</h3>
-          <p>{articleInfo.body}</p>
-          <Link className="link" to={`/users/${articleInfo.created_by}`}>by {articleInfo.created_by} </Link>
-          <Voter id={articleInfo._id} votes={articleInfo.votes} updateVote={this.updateVote} />
-          <hr />
-          <h4><i className="fas fa-comments"></i> Comments: {this.state.comments.length}</h4>
-          <CommentAdder id={articleInfo._id} addComment={this.addComment} />
-          </div>
-          : <div className="frownFace"><i className="far fa-frown fa-lg " style={{ color: 'tomato' }} aria-hidden="true"></i><p>Sorry, article does not exist!</p></div> }
+          {!articleInfo.length ?
+            <div>
+              <h3>Article: {articleInfo.title}</h3>
+              <p>{articleInfo.body}</p>
+              <Link className="link" to={`/users/${articleInfo.created_by}`}>by {articleInfo.created_by} </Link>
+              <Voter id={articleInfo._id} votes={articleInfo.votes} updateVote={this.updateVote} />
+              <hr />
+              <h4><i className="fas fa-comments"></i> Comments: {this.state.comments.length}</h4>
+              <CommentAdder id={articleInfo._id} addComment={this.addComment} />
+            </div>
+            : <div className="frownFace"><i className="far fa-frown fa-lg " style={{ color: 'tomato' }} aria-hidden="true"></i><p>Sorry, article does not exist!</p></div>}
           {this.state.comments.map((comment, index) => (
             <div key={index}>
               <p><i className="fas fa-comments"></i> {comment.body}</p>
@@ -142,7 +144,7 @@ class Article extends React.Component {
               {comment.created_by === 'northcoder' ?
                 <CommentDeleter id={comment._id} deleteComment={this.deleteComment} />
                 : <p></p>}
-              <p><i class="far fa-clock"></i> {moment(comment.created_at).fromNow()}  </p>
+              <p><i className="far fa-clock"></i> {moment(comment.created_at).fromNow()}  </p>
               <hr />
             </div>
           )
